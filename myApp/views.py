@@ -184,5 +184,6 @@ def add_article(request):
         return render(request, 'html/article.html', context={'form': form})
 
 
-
+def check(request):
+    pass
 
