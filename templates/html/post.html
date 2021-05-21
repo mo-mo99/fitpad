@@ -1,0 +1,29 @@
+{% extends 'html/Main.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="col-lg-10">
+    {{ post.owner }}
+    <img class="thumbnail" src="{{ post.imageURL }}">
+    {{ post.text }}<br>
+
+    {% if status %}
+    <a href="{% url 'liking' 'post' post.id %}">&#9829</a>
+    {% else %}
+    <a href="{% url 'liking' 'post' post.id %}">&#9825</a>
+    {% endif %}
+    {{ like }}<p> likes </p>
+    {{ num }}
+    <strong>Comments</strong>
+        {% for c in comments %}
+        <p>{{ c.text }}</p>
+        {% endfor %}
+    <form method="post" action="{% url 'add_comment' 'post' post.id %}">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="submit">
+    </form>
+    {{ post.date }}
+    </div>
+
+{% endblock %}

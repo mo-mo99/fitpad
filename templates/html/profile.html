@@ -1,0 +1,30 @@
+{% extends 'html/Main.html' %}
+{% load static %}
+{% block content %}
+    <div style="height: 10rem;background-color: lightgray; margin-top: 0.5rem; text-align: center; border-radius: 2px">
+        <img style="float: right" class="thumbnail" src="#">
+        <div style="text-align: center; margin: auto">
+            <strong>posts</strong>{{ post }}
+            <strong>following</strong>{{ followings }}
+            {{ owner.get_following }}
+            <strong>followers</strong>{{ followers }}
+            {{ owner.get_followers }}
+
+        </div>
+        {% if cur != id and not status %}
+    <a href="{% url 'following' id %}"><button class="follow-btn">follow</button></a>
+    {% endif %}
+    {% if cur != id and status %}
+    <a href="{% url 'unfollow' id %}"><button class="follow-btn">unfollow</button></a>
+    {% endif %}
+    </div>
+<div class="row">
+{% for p in posts %}
+    <div class="col-lg-4">
+        <a href="{% url 'show_post' p.id %}"><img style="padding: 5px" class="thumbnail"  src="{{ p.imageURL }}" ></a>
+    </div>
+
+{% endfor %}
+
+</div>
+{% endblock content %}

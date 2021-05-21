@@ -1,0 +1,25 @@
+{% extends 'html/Main.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="row" >
+
+{% for p in posts %}
+    <div  class="col-lg-8" >
+    <a href="{% url 'profile' p.owner.id %}"><h1>{{ p.owner }}</h1></a>
+    <img class="thumbnail"  src="{{ p.imageURL }}">
+    <p>{{ p.text }}</p>
+    <p>{{ p.date }}</p>
+    </div>
+{% endfor %}
+
+</div>
+</body>
+</html>
+{% endblock content %}

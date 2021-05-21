@@ -1,0 +1,10 @@
+{% extends 'html/Main.html' %}
+{% load static %}
+{% block content %}
+{% for m in mains %}
+    <div class="col-sm-3">
+    {{ m.name }}
+     <img class="thumbnail" src="{{ m.imageURL }}">
+    </div>
+    {% endfor %}
+{% endblock %}
