@@ -1,0 +1,1 @@
+web: gunicorn fitpad.wsgi --log-file -
