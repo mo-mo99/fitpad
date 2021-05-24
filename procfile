@@ -1,1 +1,1 @@
-web: gunicorn fitpad.wsgi --log-file -
+web gunicorn fitpad.wsgi --log-file -
