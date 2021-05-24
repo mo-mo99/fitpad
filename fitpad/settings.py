@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-__a*y-m81*^8&5wh1ihg#xz%wdm#c8n_31w&%=v4r+l69)teu3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['dashboard.heroku.com/apps/django-fitpad', '127.0.0.1']
 
