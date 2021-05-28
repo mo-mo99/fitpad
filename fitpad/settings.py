@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'myApp',
     'diet',
     'workout',
+    'rest_framework',
+    'rest_framework_swagger',
+    'chat',
+    'channels',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +57,15 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+'DEFAULT_SCHEMA_CLASS':'rest_framework.schemas.coreapi.AutoSchema',
+    # 'DEFAULT_PERMISSION_CLASSES': [],
+    # 'TEST_REQUEST_DEFAULT_FORMAT': 'json'
+}
 
 ROOT_URLCONF = 'fitpad.urls'
 
@@ -74,6 +87,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'fitpad.wsgi.application'
+ASGI_APPLICATION = 'fitpad.asgi.application'
+
+CHANNEL_LAYERS = {
+    'default' : {
+        'BACKEND' : 'channels_redis.core.RedisChannelLayer',
+        'CONFIG' : {
+            'hosts' : [('127.0.0.1', '6379')],
+        }
+    }
+}
 
 
 # Database

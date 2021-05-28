@@ -80,5 +80,7 @@ class Like(models.Model):
     date = models.DateTimeField(auto_now_add=True)
 
 
+class Room(models.Model):
+    student = models.FloatField()
 
 
